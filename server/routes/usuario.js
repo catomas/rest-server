@@ -53,7 +53,7 @@ app.get('/usuario', authentication.verificaToken, (req, res) => {
 });
 
 
-app.post('/usuario', function(req, res) {
+app.post('/usuario', [authentication.verificaToken, authentication.verificaAdminRole], function(req, res) {
 
     let body = req.body;
 
